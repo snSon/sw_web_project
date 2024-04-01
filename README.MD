@@ -16,9 +16,9 @@
   <li> const nicknameInput = document.getElementById('nickname'); 추가
   <li> message.style.color = chooseColor(nicknameInput.value); 추가
   <li> function chooseColor(nickname) {
-            const colors = ['#FF0000', '#FFA500', '#FFFF00', '#008000', '#00FFFF', '#0000FF', '#800080', '#000000'];
-            const sum = nickname.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
-            const colorIndex = sum % colors.length;
-            return colors[colorIndex];
-        } 추가
+  <li>      const colors = ['#FF0000', '#FFA500', '#FFFF00', '#008000', '#00FFFF', '#0000FF', '#800080', '#000000'];
+  <li>      const sum = nickname.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+  <li>      const colorIndex = sum % colors.length;
+  <li>      return colors[colorIndex];
+  <li>  } 추가
 </ol>
