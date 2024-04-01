@@ -3,19 +3,25 @@
 <head>
     <title>Chat App</title>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body style="text-align: center;">
-
-    <div id="title" style="font-size: 50px;"><strong>화이팅 게이들</strong><p></div>
-    <input type="text" id="nickname" placeholder="Input Nickname" required>
-    <input type="text" id="messageInput" placeholder="Type a message...">
-    <button onclick="sendMessage()">Send</button>
+<body>
+    <fileset>
+    <div id="title"><strong>채팅 야무지게 쳐보아요~!</strong></div>
+    <input type="text" size="20" id="nickname" placeholder="Input Nickname" required>
+    <input type="text"size="40" id="messageInput" placeholder="Type a message...">
+    <button onclick="sendMessage()">보내기</button><p>
     <div id="chat"></div>
 
+     <!-- 소리 출력 -->
+     <audio id="audio" src="COW.mp3"></audio>
+
+    </fileset>
     <script>
         const ws = new WebSocket('ws://localhost:8080'); // 여기로 접속
         const chat = document.getElementById('chat');
         const messageInput = document.getElementById('messageInput');
+        const audio = document.getElementById('audio'); // Reference to the audio element
 
         ws.onmessage = function(event) {
             // event.data가 Blob 인스턴스일 경우 FileReader를 사용해서 읽어오기
@@ -39,7 +45,9 @@
             const message = messageInput.value;
             ws.send(message);
             messageInput.value = '';
+            audio.play();
         }
+        
     </script>
 </body>
 </html>
