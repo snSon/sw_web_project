@@ -15,3 +15,9 @@ body{
 #chat{
 
 }
+#nickname{
+    height: 20px;
+}
+#messageInput{
+    height: 20px;
+}
