@@ -6,13 +6,13 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <div id="title"><strong>화이팅 게이들</strong><p></div>
-    <input type="text" id="nickname" placeholder="Input Nickname" required>
-    <input type="text" id="messageInput" placeholder="Type a message...">
-    <button onclick="sendMessage()">Send</button>
+    <fileset>
+    <div id="title"><strong>채팅 야무지게 쳐보아요~!</strong></div>
+    <input type="text" size="20" id="nickname" placeholder="Input Nickname" required>
+    <input type="text"size="40" id="messageInput" placeholder="Type a message...">
+    <button onclick="sendMessage()">보내기</button><p>
     <div id="chat"></div>
-
+    </fileset>
     <script>
         const ws = new WebSocket('ws://localhost:8080'); // 여기로 접속
         const chat = document.getElementById('chat');
@@ -41,6 +41,7 @@
             ws.send(message);
             messageInput.value = '';
         }
+        
     </script>
 </body>
 </html>

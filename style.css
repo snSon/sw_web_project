@@ -7,19 +7,36 @@ body{
 
 }
 #title{
-    font-size: 50px;
+    margin-top: 20px;
+    font-size: 80px;
     font-family: 'Dongle', sans-serif;
     color:brown;
     font-style: italic;
+    
 }
 #chat{
     border: 2px solid white;
     width: 500px;
     margin: 0 auto;
+    text-align: left;
+    padding-left: 20px;
 }
 #nickname{
-    height: 20px;
+    height: 40px;
+    border-radius: 10px;
+    border-color: white;
 }
 #messageInput{
-    height: 20px;
+    height: 40px;
+    border-radius: 10px;
+    border-color: white;
+    
+}
+button{
+    width: auto;
+    height: 40px;
+    border-radius: 10px;
+    border-color: white;
+    color: white;
+    background-color: black;
 }
