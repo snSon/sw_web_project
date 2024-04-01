@@ -16,6 +16,7 @@
     <script>
         const ws = new WebSocket('ws://localhost:8080'); // 여기로 접속
         const chat = document.getElementById('chat');
+        const nicknameInput = document.getElementById('nickname');
         const messageInput = document.getElementById('messageInput');
 
         ws.onmessage = function(event) {
@@ -25,6 +26,7 @@
                 reader.onload = function() {
                     const message = document.createElement('p');
                     message.textContent = reader.result;
+                    message.style.color = chooseColor(nicknameInput.value);
                     chat.appendChild(message); // chat이라는 div에다가 뒤에 계속 메세지를 붙임
                 };
                 reader.readAsText(event.data);
@@ -32,10 +34,16 @@
                 // 메시지가 문자열인 경우, 직접 표시
                 const message = document.createElement('p');
                 message.textContent = event.data;
+                message.style.color = chooseColor(nicknameInput.value);
                 chat.appendChild(message);
             }
         };
-
+        function chooseColor(nickname) {
+            const colors = ['#FF0000', '#FFA500', '#FFFF00', '#008000', '#00FFFF', '#0000FF', '#800080', '#000000'];
+            const sum = nickname.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+            const colorIndex = sum % colors.length;
+            return colors[colorIndex];
+        } 
         function sendMessage() {
             const message = messageInput.value;
             ws.send(message);

@@ -17,8 +17,6 @@ wss.on('connection', function connection(ws) {
       }
     });
   });
-
-  ws.send('Welcome to the chat server!');
 });
 
 console.log('Chat server is running on ws://localhost:8080');
