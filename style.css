@@ -13,7 +13,9 @@ body{
     font-style: italic;
 }
 #chat{
-
+    border: 2px solid white;
+    width: 500px;
+    margin: 0 auto;
 }
 #nickname{
     height: 20px;
