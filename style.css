@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300&display=swap');
+body{
+    text-align: center;
+    background: #544a7d;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ffd452, #544a7d);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ffd452, #544a7d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+#title{
+    margin-top: 20px;
+    font-size: 80px;
+    font-family: 'Dongle', sans-serif;
+    color:brown;
+    font-style: italic;
+    
+}
+#chat{
+    border: 2px solid white;
+    width: 500px;
+    margin: 0 auto;
+    text-align: left;
+    padding-left: 20px;
+}
+#nickname{
+    height: 40px;
+    border-radius: 10px;
+    border-color: white;
+}
+#messageInput{
+    height: 40px;
+    border-radius: 10px;
+    border-color: white;
+    
+}
+button{
+    width: auto;
+    height: 40px;
+    border-radius: 10px;
+    border-color: white;
+    color: white;
+    background-color: black;
+}
