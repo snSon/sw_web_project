@@ -6,20 +6,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <fileset>
+    <fieldset>
     <div id="title"><strong>채팅 야무지게 쳐보아요~!</strong></div>
     <input type="text" size="20" id="nickname" placeholder="Input Nickname" required>
     <input type="text"size="40" id="messageInput" placeholder="Type a message...">
-    <button onclick="sendMessage()">보내기</button><p>
+    <button onclick="sendMessage()">보내기</button><fieldset>
     <div id="chat"></div>
-
-     <!-- 소리 출력 -->
-     <audio id="audio" src="COW.mp3"></audio>
-
-    </fileset>
+    <!-- 소리 출력 -->
+    <audio id="audio" src="COW.mp3"></audio>
+    
+    </fieldset>
     <script>
         const ws = new WebSocket('ws://localhost:8080'); // 여기로 접속
         const chat = document.getElementById('chat');
+        const nicknameInput = document.getElementById('nickname');
         const messageInput = document.getElementById('messageInput');
         const audio = document.getElementById('audio'); // Reference to the audio element
 
@@ -30,6 +30,7 @@
                 reader.onload = function() {
                     const message = document.createElement('p');
                     message.textContent = reader.result;
+                    message.style.color = chooseColor(nicknameInput.value);
                     chat.appendChild(message); // chat이라는 div에다가 뒤에 계속 메세지를 붙임
                 };
                 reader.readAsText(event.data);
@@ -37,10 +38,16 @@
                 // 메시지가 문자열인 경우, 직접 표시
                 const message = document.createElement('p');
                 message.textContent = event.data;
+                message.style.color = chooseColor(nicknameInput.value);
                 chat.appendChild(message);
             }
         };
-
+        function chooseColor(nickname) {
+            const colors = ['#FF0000', '#FFA500', '#FFFF00', '#008000', '#00FFFF', '#0000FF', '#800080', '#000000'];
+            const sum = nickname.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+            const colorIndex = sum % colors.length;
+            return colors[colorIndex];
+        } 
         function sendMessage() {
             const message = messageInput.value;
             ws.send(message);
